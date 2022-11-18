@@ -15,3 +15,13 @@ The webscraper is configured to scape unique page paths or directories from a do
 - Unable to reliably scrape dynamic websites such as .aspx
 - Unable to save scraped data during a crash
 - Unable to estimate workload
+
+## How to use on Terminal
+
+1. `cd GenericWebScraper`
+2. `python crawl.py`
+
+## Discourse
+
+- Feel free to do a pull request to update any documentation or functionality!
+- Professional discourse is welcome!
