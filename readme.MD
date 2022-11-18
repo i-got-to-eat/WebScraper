@@ -2,9 +2,9 @@
 
 ## Major Dependencies & Versions
 
--- Python 3.9.7
--- Scrapy 2.7.1
--- Pandas 1.5.1
+- Python 3.9.7
+- Scrapy 2.7.1
+- Pandas 1.5.1
 
 ## Purpose
 
@@ -12,6 +12,6 @@ The webscraper is configured to scape unique page paths or directories from a do
 
 ## Current Technical Constraints
 
--- Unable to reliably scrape dynamic websites such as .aspx
--- Unable to save scraped data during a crash
--- Unable to estimate workload
+- Unable to reliably scrape dynamic websites such as .aspx
+- Unable to save scraped data during a crash
+- Unable to estimate workload
