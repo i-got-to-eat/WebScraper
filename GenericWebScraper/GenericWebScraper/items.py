@@ -7,6 +7,12 @@ import scrapy
 
 
 class GenericwebscraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    SourceURL = scrapy.Field()
+    SourcePageH1 = scrapy.Field()
+    SourcePageTitle = scrapy.Field()
+    URLFromSourcePageRaw = scrapy.Field()
+    URLFromSourcePageFormatted = scrapy.Field()
+    URLTextFromSourcePage = scrapy.Field()
+
+
+
