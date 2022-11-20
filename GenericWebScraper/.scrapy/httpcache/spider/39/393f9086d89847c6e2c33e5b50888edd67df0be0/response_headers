@@ -1,0 +1,9 @@
+Content-Length: 219
+Location: http://www.google.com/
+Content-Type: text/html; charset=UTF-8
+Date: Sun, 20 Nov 2022 07:42:07 GMT
+Expires: Tue, 20 Dec 2022 07:42:07 GMT
+Cache-Control: public, max-age=2592000
+Server: gws
+X-Xss-Protection: 0
+X-Frame-Options: SAMEORIGIN

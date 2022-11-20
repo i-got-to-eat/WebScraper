@@ -1,0 +1,11 @@
+Content-Length: 230
+Location: https://www.google.com/robots.txt
+Cross-Origin-Resource-Policy: cross-origin
+X-Content-Type-Options: nosniff
+Server: sffe
+X-Xss-Protection: 0
+Date: Sun, 20 Nov 2022 07:21:48 GMT
+Expires: Sun, 20 Nov 2022 07:51:48 GMT
+Cache-Control: public, max-age=1800
+Content-Type: text/html; charset=UTF-8
+Age: 1219

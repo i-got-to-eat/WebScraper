@@ -17,14 +17,15 @@ NEWSPIDER_MODULE = 'GenericWebScraper.spiders'
 #USER_AGENT = 'GenericWebScraper (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32
 LOG_LVEL = 'INFO'
 AJAXCRAWL_ENABLED = True
 REDIRECT_ENABLED = False
-
+SCHEDULER_DISK_QUEUE = 'scrapy.squeues.PickleFifoDiskQueue'
+SCHEDULER_MEMORY_QUEUE = 'scrapy.squeues.FifoMemoryQueue'
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
@@ -34,7 +35,7 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 16
 CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-COOKIES_ENABLED = True
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -50,6 +51,7 @@ DEFAULT_REQUEST_HEADERS = {
 SPIDER_MIDDLEWARES = {
     'GenericWebScraper.middlewares.GenericwebscraperSpiderMiddleware': 543,
 }
+
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html

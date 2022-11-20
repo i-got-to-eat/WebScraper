@@ -1,33 +1,36 @@
 # Note to self
 ## Need to find the exact exception 
 
-import scrapy
-import GenericWebScraper.items import GenericwebscraperItem
-import scrapy import Selector 
 import re
-from dotenv import load_dotenv
 import os 
+import scrapy
+from GenericWebScraper.items import GenericwebscraperItem
+from scrapy import Selector 
+from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv("../../EnvironmentVariables.env")
 SKIP_NOTATION = ["#", ".pdf", ".doc", ".docx", ".txt", "mailto:", "tel:"]
 
-class SpiderSpider(scrapy.Spider):
+
+class Spider(scrapy.Spider):
     name = "spider"
-    allowed_domains = ["google.com"]
-    start_urls = ["http://google.com/"]
+    allowed_domains = ["brainyquote.com"]
+    start_urls = ["http://www.brainyquote.com/topics/music-quotes"]
 
     custom_settings = {
         "scrapy.spidermiddlewares.depth.DepthMiddleware": 900,
-        "DEPTH_LIMIT":1,
         "FEED_FORMAT":"csv",
-        "LOG_LEVEL": "error",
-        "FEED_URI": f'{os.getenv(OUTPUT_PATH)}{name}.csv',
-        "LOG_FILE": f'{os.getenv(OUTPUT_PATH)}{name}.log',
+        "LOG_LEVEL": "ERROR",
+        "FEED_URI": f'.{os.getenv("OUTPUT_PATH")}{name}.csv',
+        "LOG_FILE": f'.{os.getenv("OUTPUT_PATH")}{name}.log'
     }
-    def start_requests(self):
-        return [scrapy.FormRequest("http://www.example.com/login",
-                                   formdata={'user': 'john', 'pass': 'secret'},
-                                   callback=self.logged_in)]
+
+    #def start_requests(self):
+    #    return [scrapy.FormRequest("http://www.example.com/login",
+    #                               formdata={'user': 'john', 'pass': 'secret'},
+    #                               callback=self.logged_in)]
+   
+
 
     def parse(self, response):
         CSVFile = GenericwebscraperItem()
@@ -45,6 +48,8 @@ class SpiderSpider(scrapy.Spider):
             CSVFile["URLTextFromSourcePage"] = Selector(text=a).xpath("//a/text()").get()
             yield CSVFile
 
+
+        for aTag in response.xpath('//a').getall():
             if any( x in aTagLowerCase for x in SKIP_NOTATION):
                 continue
             try:
