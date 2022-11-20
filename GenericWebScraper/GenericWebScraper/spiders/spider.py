@@ -14,11 +14,12 @@ SKIP_NOTATION = ["#", ".pdf", ".doc", ".docx", ".txt", "mailto:", "tel:"]
 
 class Spider(scrapy.Spider):
     name = "spider"
-    allowed_domains = ["brainyquote.com"]
-    start_urls = ["http://www.brainyquote.com/topics/music-quotes"]
+    allowed_domains = ["facebook.com"]
+    start_urls = ["http://www.facebook.com"]
 
     custom_settings = {
         "scrapy.spidermiddlewares.depth.DepthMiddleware": 900,
+        "DEPTH_LIMIT":1 ,
         "FEED_FORMAT":"csv",
         "LOG_LEVEL": "ERROR",
         "FEED_URI": f'.{os.getenv("OUTPUT_PATH")}{name}.csv',
@@ -38,6 +39,7 @@ class Spider(scrapy.Spider):
         print(f'Visiting site ... {str(response.url)})')
         
         for aTag in response.xpath('//a').getall():
+            print(aTag)
             aTagLowerCase = aTag.lower()
 
             CSVFile["SourceURL"] = response.url

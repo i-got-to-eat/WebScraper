@@ -23,7 +23,7 @@ ROBOTSTXT_OBEY = False
 CONCURRENT_REQUESTS = 32
 LOG_LVEL = 'INFO'
 AJAXCRAWL_ENABLED = True
-REDIRECT_ENABLED = False
+REDIRECT_ENABLED = True
 SCHEDULER_DISK_QUEUE = 'scrapy.squeues.PickleFifoDiskQueue'
 SCHEDULER_MEMORY_QUEUE = 'scrapy.squeues.FifoMemoryQueue'
 # Configure a delay for requests for the same website (default: 0)
@@ -55,9 +55,9 @@ SPIDER_MIDDLEWARES = {
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'GenericWebScraper.middlewares.GenericwebscraperDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'GenericWebScraper.middlewares.GenericwebscraperDownloaderMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -93,5 +93,5 @@ HTTPCACHE_IGNORE_HTTP_CODES = []
 HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # Set settings whose default value is deprecated to a future-proof value
-REQUEST_FINGERPRINTER_IMPLEMENTATION = '2.7'
-TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
+#REQUEST_FINGERPRINTER_IMPLEMENTATION = '2.7'
+#TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
